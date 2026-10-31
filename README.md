@@ -1,6 +1,6 @@
 # Symbols Icons
 
-Herdr's Files panel with the [Symbols](https://github.com/miguelsolorio/vscode-symbols) icon theme by Miguel Solorio. Every file and folder in the tree gets its Symbols icon.
+A drop-in replacement for Herdr's Files panel that renders the tree with [Symbols](https://github.com/miguelsolorio/vscode-symbols), Miguel Solorio's minimal file icon theme for VS Code. Icons resolve the way VS Code resolves them and keep their original colors.
 
 ![Symbols Icons](preview.png)
 

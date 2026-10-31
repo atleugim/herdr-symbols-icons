@@ -1,6 +1,6 @@
 # Symbols Icons
 
-Herdr's Files panel with the icons of [Symbols](https://github.com/miguelsolorio/vscode-symbols), Miguel Solorio's minimal VS Code file icon theme. Every file and folder in the tree gets its small, flat Symbols icon in its own colors: TypeScript's "TS", Python's snake, Docker's whale, a git diamond for `.gitignore`, a node hexagon for `package.json`, and outlined folders with a tiny badge for `src`, `components`, `.github` or `node_modules`. The file preview shows the file's icon next to its name. This is a piece you add to your current layout, not a whole window.
+A drop-in replacement for Herdr's Files panel that renders the tree with [Symbols](https://github.com/miguelsolorio/vscode-symbols), Miguel Solorio's minimal file icon theme for VS Code. Icons resolve the way VS Code resolves them (exact file name, then the longest matching extension, then language-id fallbacks) and keep their original colors, including badged folders like `src` and `.github`. It ships as a single panel for your existing layout, not a full layout.
 
 ![Symbols Icons](preview.png)
 
