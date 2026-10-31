@@ -2,6 +2,8 @@
 
 Herdr's Files panel with the [Symbols](https://github.com/miguelsolorio/vscode-symbols) icon theme by Miguel Solorio. Every file and folder in the tree gets its Symbols icon.
 
+![Symbols Icons](preview.png)
+
 A mod for the [Herdr](https://herdr.dev) desktop app. It replaces the shipped `files` panel. Inspired by [herdr-file-icons](https://github.com/amster93/herdr-file-icons).
 
 ## What it does
