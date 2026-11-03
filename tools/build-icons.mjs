@@ -6,7 +6,7 @@
 //
 // Needs node 18+ and tar. Writes only inside mods/symbols-icons/.
 import { execFileSync } from "node:child_process";
-import { mkdtempSync, readFileSync, writeFileSync, rmSync, mkdirSync, copyFileSync, readdirSync } from "node:fs";
+import { mkdtempSync, readFileSync, writeFileSync, rmSync, mkdirSync, copyFileSync, cpSync, readdirSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, dirname, basename } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -90,10 +90,16 @@ try {
   for (const table of [data.fileNames, data.fileExtensions, data.folderNames]) for (const id of Object.values(table)) used.add(id);
   const missing = [...used].filter(id => !defs[id]);
   if (missing.length) throw new Error(`theme names icons it does not define: ${missing.join(", ")}`);
+  // Ids become file names; reject any that could escape icons/.
+  const unsafe = [...used].filter(id => !/^[a-z0-9_-]+$/i.test(id));
+  if (unsafe.length) throw new Error(`unsafe icon ids: ${unsafe.join(", ")}`);
 
+  // Copy into a staging folder first so a failed copy leaves the current icons/ untouched.
+  const staged = join(tmp, "icons");
+  mkdirSync(staged);
+  for (const id of [...used].sort()) copyFileSync(join(repo, "src", defs[id].iconPath), join(staged, `${id}.svg`));
   rmSync(ICONS, { recursive: true, force: true });
-  mkdirSync(ICONS, { recursive: true });
-  for (const id of [...used].sort()) copyFileSync(join(repo, "src", defs[id].iconPath), join(ICONS, `${id}.svg`));
+  cpSync(staged, ICONS, { recursive: true });
   copyFileSync(join(repo, "LICENSE"), join(MOD, "LICENSE-symbols.txt"));
 
   writeFileSync(join(MOD, "icons.js"),

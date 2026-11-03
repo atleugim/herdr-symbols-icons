@@ -48,7 +48,7 @@ The panel has no agent statuses. It refreshes every 10 seconds and whenever some
   - each row draws `image(icon(path, entry.dir)).size(16)` in place of the shipped one-color `svg(... folder/file.svg).size(14).text_color(t.muted)`;
   - the header's right side becomes an `h_flex` (gap 6, `justify_end`) holding `image(icon(this.file, false)).size(14)` while a file is open, then the truncated path or folder name.
 - `mod.json`: `{ "place": "none" }` (it only appears where a layout puts it).
-- `chevron-down.svg`, `chevron-right.svg`: the shipped Lucide glyphs (ISC), drawn with `svg()` so they tint.
+- `chevron-down.svg`, `chevron-right.svg`: the shipped Lucide glyphs (ISC), drawn with `svg()` so they tint, with their licence as `LICENSE-Lucide.txt`.
 - `icons/`: 317 SVGs from **Symbols** (MIT), commit `2c95b15b0a8ef95ac62855e3784a6024ee6e5d2e` of https://github.com/miguelsolorio/vscode-symbols, each saved as `<icon id>.svg`, and its licence as `LICENSE-symbols.txt`.
 - `icons.js`: `export default { file, folder, fileNames, fileExtensions, folderNames }`, every key in lower case, each value an icon id. About 36 KB.
 - **The generator**, `tools/build-icons.mjs` at the repo root (Node 18+, no dependencies; uses `fetch` and `tar`). It downloads `https://codeload.github.com/miguelsolorio/vscode-symbols/tar.gz/<ref>`, reads `src/symbol-icon-theme.json`, lower-cases the tables, adds extensions and file names the theme only reaches through VS Code language ids (see Watch out), checks every id is defined, copies `src/<iconPath>` for every id the tables name to `icons/<id>.svg`, and writes `icons.js`. `node tools/build-icons.mjs <git ref>` moves to another version.

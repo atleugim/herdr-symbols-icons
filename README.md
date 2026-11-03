@@ -46,4 +46,4 @@ Downloads the Symbols repo from GitHub and regenerates `mods/symbols-icons/icons
 
 ## License
 
-Code: Apache-2.0, see [LICENSE](LICENSE). Built from Herdr's shipped `files` mod. Icons: [Symbols](https://github.com/miguelsolorio/vscode-symbols), MIT, see [mods/symbols-icons/LICENSE-symbols.txt](mods/symbols-icons/LICENSE-symbols.txt). Chevrons: [Lucide](https://lucide.dev), ISC, see [LICENSE-Lucide.txt](LICENSE-Lucide.txt).
+Code: Apache-2.0, see [LICENSE](LICENSE). Built from Herdr's shipped `files` mod. Icons: [Symbols](https://github.com/miguelsolorio/vscode-symbols), MIT, see [mods/symbols-icons/LICENSE-symbols.txt](mods/symbols-icons/LICENSE-symbols.txt). Chevrons: [Lucide](https://lucide.dev), ISC, see [mods/symbols-icons/LICENSE-Lucide.txt](mods/symbols-icons/LICENSE-Lucide.txt).
